@@ -268,6 +268,10 @@
       newValue = JSON.parse(origValue)
     }
 
+    if (typeof newValue !== 'object') {
+      newValue = {image: newValue}
+    }
+
     $anchorLabelX.text((x * 100).toFixed(2))
     $anchorLabelY.text((y * 100).toFixed(2))
 

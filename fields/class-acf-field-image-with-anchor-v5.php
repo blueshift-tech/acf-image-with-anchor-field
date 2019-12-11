@@ -228,13 +228,12 @@ class acf_field_image_with_anchor extends acf_field {
 
     if (! is_object($raw_data)) {
       $data->image = $raw_data;
-    }
-		else {
+    } else {
 			$data->image = $raw_data->image;
-		}
 
-		if (is_object($raw_data->anchor)) {
-			$data->anchor = $raw_data->anchor;
+			if (is_object($raw_data->anchor)) {
+				$data->anchor = $raw_data->anchor;
+			}
 		}
 
 		$src = wp_get_attachment_image_src($data->image, 'full');
