@@ -207,7 +207,7 @@ class acf_field_image_with_anchor extends acf_field {
 	*  @return  $value (mixed) the modified value
 	*/
 	function format_value($value, $post_id, $field) {
-		return $value;
+		return json_decode($value);
 	}
 
   function get_field_data($field) {
