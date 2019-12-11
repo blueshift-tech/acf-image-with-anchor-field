@@ -1,4 +1,9 @@
+const Path = require('path');
 const Webpack = require('webpack');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -7,7 +12,8 @@ module.exports = {
   stats: 'errors-only',
   bail: true,
   entry: {
-    bundle: Path.join(__dirname, 'src/manifest.js')
+    input: Path.join(__dirname, 'src/input.js'),
+    style: Path.join(__dirname, 'src/input.scss')
   },
   output: {
     path: Path.join(__dirname, 'build'),
@@ -24,12 +30,39 @@ module.exports = {
       })
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+    compress: true,
+    port: 9000,
+    https: true,
+    hot: true,
+    proxy: {
+      '*': {
+        'target': 'https://boilerplate.gruhn',
+        'secure': true
+      }
+    },
+  },
   plugins: [
     new CleanWebpackPlugin(),
+    new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new Webpack.optimize.ModuleConcatenationPlugin()
+    new Webpack.optimize.ModuleConcatenationPlugin(),
+    new BrowserSyncPlugin({
+      proxy: 'https://boilerplate.gruhn',
+      files: [
+        'src/**/*.scss',
+        'src/**/*.js',
+        '**.php',
+        'src/**/*.twig'
+      ],
+      injectCss: true,
+      reload: false
+    }, {
+      reload: false
+    })
   ],
   resolve: {
     alias: {
