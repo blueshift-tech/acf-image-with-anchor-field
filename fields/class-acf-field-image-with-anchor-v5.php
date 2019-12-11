@@ -126,7 +126,7 @@ class acf_field_image_with_anchor extends acf_field {
 				</div>
 				<div class="sidebar">
 					<p class="description">
-						<?php _e('The anchor position is used to center the image. If the image must be cropped to fit, especially on smaller screens, the image will be cropped around the anchor.', 'acf-image_with_anchor') ?>
+						<?php _e('The anchor position is when cropping and positioning the image. If the image must be cropped to fit, especially on smaller screens, the image will be cropped such that the anchor point is kept in frame.', 'acf-image_with_anchor') ?>
 					</p>
 				</div>
 			</div>
