@@ -6,6 +6,12 @@
  * Version: 1.0
  * Author: Matt Gruhn
  * Author URI: https://getblueshift.tech/
+ * License:           GNU General Public License v2
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path:       /languages
+ * Text Domain:       github-updater
+ * GitHub Plugin URI: https://github.com/afragen/github-updater
+ * GitHub Branch:     master
  */
 
  // exit if accessed directly
