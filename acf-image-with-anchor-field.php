@@ -10,7 +10,8 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Domain Path:       /languages
  * Text Domain:       github-updater
- * GitHub Plugin URI: https://github.com/afragen/github-updater
+ * GitHub Plugin URI: blueshift-tech/acf-image-with-anchor-field
+ * GitHub Plugin URI: https://github.com/blueshift-tech/acf-image-with-anchor-field
  * GitHub Branch:     master
  */
 
